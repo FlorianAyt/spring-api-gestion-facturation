@@ -24,7 +24,7 @@ public class ActeService {
         return acteRepository.findById(id);
     }
 
-    public Iterable <Acte> getActes(){
+    public Iterable <Acte> getAlltActes(){
         return acteRepository.findAll();
     }
 
@@ -36,7 +36,7 @@ public class ActeService {
         acteRepository.deleteById(id);
     }
 
-    public void deleteActes(){
+    public void deleteAllActes(){
         acteRepository.deleteAll();
     }
 }

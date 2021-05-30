@@ -1,10 +1,12 @@
 package com.florian.gestfact.security.model;
 
 import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -14,15 +16,25 @@ import java.util.Collection;
 public class User implements Serializable, UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private Integer Id;
 
+    @NotNull
     private String username;
 
+    @NotNull
     private String password;
 
+    @Email
+    @NotNull
+    private String email;
+
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="role_id")
     private Role role;
+
+    public User() {
+
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -2,6 +2,7 @@ package com.florian.gestfact.model;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class Facture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @CreationTimestamp
     private LocalDateTime dateCreationFacture;
 
@@ -30,4 +32,7 @@ public class Facture {
     private List <Acte> actes;
 
 
+    public Facture() {
+
+    }
 }
